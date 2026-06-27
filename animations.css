@@ -1,0 +1,123 @@
+/* ====================================================================
+   ANIMATIONS — keyframes, reveal states, micro-interactions
+   ==================================================================== */
+
+/* ---------- KEYFRAMES ---------- */
+@keyframes preloaderPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.7;
+  }
+}
+
+@keyframes dotPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(20, 184, 166, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(20, 184, 166, 0);
+  }
+}
+
+@keyframes scrollThumb {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(20px);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes floatChip {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- SCROLL REVEAL (GSAP-driven, CSS provides initial state) ---------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(36px);
+}
+.reveal-ready[data-reveal] {
+  transition:
+    opacity 0.9s var(--ease-out),
+    transform 0.9s var(--ease-out);
+}
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-float] {
+  animation: floatChip 5s ease-in-out infinite;
+}
+[data-float].about__chip--since {
+  animation-delay: 1.2s;
+}
+
+/* ---------- HERO SLIDES (GSAP driven) ---------- */
+.hero__slide {
+  position: absolute;
+  bottom: clamp(3rem, 8vh, 6rem);
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.hero__slide.is-active {
+  pointer-events: auto;
+}
+.hero__slide .hero__eyebrow,
+.hero__slide .hero__headline,
+.hero__slide .hero__sub,
+.hero__slide .hero__cta {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* ---------- REDUCED MOTION ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

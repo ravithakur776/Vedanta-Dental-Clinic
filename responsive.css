@@ -1,0 +1,228 @@
+/* ====================================================================
+   RESPONSIVE — tablet, mobile, small mobile
+   ==================================================================== */
+
+/* ---------- LAPTOP (≤1180px) ---------- */
+@media (max-width: 1180px) {
+  .why__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .why__block,
+  .why__block--lg {
+    grid-column: span 1;
+  }
+
+  .bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bento__card--lg,
+  .bento__card--xl {
+    grid-column: span 2;
+  }
+  .bento__card--xl {
+    grid-row: span 1;
+  }
+
+  .tech__timeline {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 1.5rem;
+  }
+  .tech__line {
+    display: none;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+  .footer__grid .footer__col:nth-child(4) {
+    grid-column: 2;
+  }
+  .footer__grid .footer__col:nth-child(5) {
+    grid-column: 3;
+  }
+}
+
+/* ---------- TABLET (≤980px) ---------- */
+@media (max-width: 980px) {
+  .nav__links {
+    display: none;
+  }
+  .nav__phone span {
+    display: none;
+  }
+  .nav__burger {
+    display: flex;
+  }
+
+  .about__grid,
+  .doctor__grid,
+  .faq__grid,
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+  .about__visual {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  .doctor__portrait {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .testimonials__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery__masonry {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 1.5rem;
+  }
+  .footer__grid .footer__col:nth-child(4) {
+    grid-column: 1;
+  }
+  .footer__grid .footer__col:nth-child(5) {
+    grid-column: 2;
+  }
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+
+  .sticky-cta {
+    display: flex;
+  }
+  .hero__slide {
+    bottom: calc(clamp(2rem, 6vh, 4rem) + 60px);
+  }
+}
+
+/* ---------- MOBILE (≤700px) ---------- */
+@media (max-width: 700px) {
+  :root {
+    --section-pad: 4.5rem;
+  }
+
+  .hero__headline {
+    font-size: clamp(2.2rem, 9vw, 3rem);
+  }
+  .hero__cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero__cta .btn {
+    width: 100%;
+  }
+  .hero__scrollcue {
+    display: none;
+  }
+
+  .about__card {
+    aspect-ratio: 1/1.1;
+  }
+  .about__chip {
+    padding: 0.7rem 0.9rem;
+  }
+  .about__chip--rating {
+    left: -4%;
+    top: -5%;
+  }
+  .about__chip--since {
+    right: -4%;
+    bottom: -5%;
+  }
+  .about__stats {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .why__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bento {
+    grid-template-columns: 1fr;
+  }
+  .bento__card--lg,
+  .bento__card--xl {
+    grid-column: span 1;
+  }
+
+  .tech__timeline {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .process__rail {
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 var(--gutter);
+  }
+
+  .process__step {
+    flex: 0 0 78vw;
+    scroll-snap-align: start;
+  }
+
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery__masonry {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form__row--split {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .footer__grid .footer__col:nth-child(4),
+  .footer__grid .footer__col:nth-child(5) {
+    grid-column: 1;
+  }
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .contact__map {
+    aspect-ratio: 16/10;
+  }
+}
+
+/* ---------- SMALL MOBILE (≤420px) ---------- */
+@media (max-width: 420px) {
+  .nav__inner {
+    gap: 0.75rem;
+  }
+  .nav__phone {
+    display: none;
+  }
+  .hero__eyebrow {
+    font-size: 0.7rem;
+  }
+  .about__pills li {
+    font-size: 0.76rem;
+    padding: 0.45rem 0.85rem;
+  }
+  .gallery__masonry {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+}
+
+/* ---------- TOUCH: disable hover-only affordances ---------- */
+@media (hover: none) {
+  .why__block:hover,
+  .bento__card:hover,
+  .t-card:hover,
+  .contact__card:hover {
+    transform: none;
+  }
+}
